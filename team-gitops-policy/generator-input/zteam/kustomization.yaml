@@ -1,0 +1,21 @@
+helmCharts:
+- name: gitops-operator
+  includeCRDs: false
+  valuesInline:
+    ignoreHelmHooks: true
+    operator: []
+    namespaces:
+    - zteam-ci-cd
+    argocd_cr:
+      repositoryCredentials: |
+        - url: gitlab-ce.apps.sno.sandbox1131.opentlc.com
+          type: git
+          passwordSecret:
+            key: password
+            name: git-auth
+          usernameSecret:
+            key: username
+            name: git-auth
+  releaseName: argocd
+  version: 0.5.7
+  repo: https://redhat-cop.github.io/helm-charts

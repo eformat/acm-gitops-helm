@@ -1,0 +1,28 @@
+---
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+metadata:
+  name: argocd-teams
+placementBindingDefaults:
+  name: argocd-teams
+policyDefaults:
+  placement:
+    placementName: placement-team-argo
+  categories:
+    - CM Configuration Management
+  complianceType: "musthave"
+  controls: 
+    - CM-2 Baseline Configuration
+  consolidateManifests: false
+  disabled: false
+  namespace: open-cluster-management-global-set
+  pruneObjectBehavior: "DeleteAll"
+  remediationAction: enforce
+  severity: medium
+  standards:
+    - generic
+  policyAnnotations: {"argocd.argoproj.io/compare-options": "IgnoreExtraneous"}
+policies:
+  - name: team-gitops
+    manifests:
+      - path: generator-input/
