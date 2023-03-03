@@ -18,6 +18,7 @@ oc apply -f bootstrap-acm-global-gitops/setup.yaml
 kustomize build --enable-helm team-gitops-policy/helm-input > team-gitops-policy/generator-input/helm-generated.yaml
 ```
 
+- Git add . ; Git commit - the `helm-generated.yaml` file.
 - Install Team based ArgoCD's
 
 ```bash
