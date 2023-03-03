@@ -1,3 +1,2 @@
 resources:
-- fteam
-- zteam
+- helm-generated.yaml
