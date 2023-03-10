@@ -20,7 +20,7 @@ apiVersion: apps.open-cluster-management.io/v1beta1
 kind: GitOpsCluster
 metadata:
   name: global-policy
-  namespace: open-cluster-management-global-set 
+  namespace: open-cluster-management-global-set
 spec:
   argoServer:
     cluster: local-cluster
@@ -80,9 +80,9 @@ spec:
       value: /etc/kustomize/plugin
     initContainers:
     - name: policy-generator-install
-      image: registry.redhat.io/rhacm2/multicluster-operators-subscription-rhel8:v2.7.0-57
+      image: quay.io/eformat/policy-generator-plugin-image:latest
       command: ["/bin/bash"]
-      args: ["-c", "cp /etc/kustomize/plugin/policy.open-cluster-management.io/v1/policygenerator/PolicyGenerator /policy-generator/PolicyGenerator"]
+      args: ["-c", "cp /var/tmp/PolicyGenerator /policy-generator/PolicyGenerator"]
       volumeMounts:
       - mountPath: /policy-generator
         name: policy-generator

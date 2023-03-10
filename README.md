@@ -12,15 +12,35 @@ ACM, PolicyGenerator Kustomize Pugin, Helm
 oc apply -f bootstrap-acm-global-gitops/setup.yaml
 ```
 
-- Generate manifests from [Helm using Kustomize](https://github.com/kubernetes-sigs/kustomize/blob/master/examples/chart.md)
-
-```bash
-kustomize build --enable-helm team-gitops-policy/helm-input > team-gitops-policy/generator-input/helm-generated.yaml
-```
-
-- Git add . ; Git commit - the `helm-generated.yaml` file.
 - Install Team based ArgoCD's
 
 ```bash
 oc apply -f applicationsets/team-argo-appset.yaml
+```
+
+# WIP
+
+ This uses the [PR to implement kustomizeOptions](https://github.com/open-cluster-management-io/policy-generator-plugin/pull/109)
+
+```yaml
+policies:
+  - name: team-gitops
+    manifests:
+      - path: helm-input/
+        kustomizeOptions:
+          enableAlphaPlugins: true
+          enableHelm: true
+```
+
+Old init - put this back once PR merges:
+
+```yaml
+    initContainers:
+    - name: policy-generator-install
+      image: registry.redhat.io/rhacm2/multicluster-operators-subscription-rhel8:v2.7.0-57
+      command: ["/bin/bash"]
+      args: ["-c", "cp /etc/kustomize/plugin/policy.open-cluster-management.io/v1/policygenerator/PolicyGenerator /policy-generator/PolicyGenerator"]
+      volumeMounts:
+      - mountPath: /policy-generator
+        name: policy-generator
 ```

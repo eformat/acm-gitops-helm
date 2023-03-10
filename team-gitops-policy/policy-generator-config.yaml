@@ -25,4 +25,7 @@ policyDefaults:
 policies:
   - name: team-gitops
     manifests:
-      - path: generator-input/
+      - path: helm-input/
+        kustomizeOptions:
+          enableAlphaPlugins: true
+          enableHelm: true
