@@ -20,7 +20,7 @@ policyDefaults:
   remediationAction: enforce
   severity: medium
   standards:
-    - generic
+    - NIST SP 800-53
   policyAnnotations: {"argocd.argoproj.io/compare-options": "IgnoreExtraneous"}
 policies:
   - name: team-gitops
