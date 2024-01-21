@@ -22,17 +22,10 @@ oc apply -f applicationsets/team-argo-appset.yaml
 
  This uses the [PR to implement kustomizeOptions](https://github.com/open-cluster-management-io/policy-generator-plugin/pull/109)
 
-```yaml
-policies:
-  - name: team-gitops
-    manifests:
-      - path: helm-input/
-        kustomizeOptions:
-          enableAlphaPlugins: true
-          enableHelm: true
-```
+[Add POLICY_GEN_ENABLE_HELM env to generator config](https://github.com/open-cluster-management-io/policy-collection/pull/443)
 
-Old init - put this back once PR merges:
+
+Init - put this back once PR merges in upstream image, for now carrying [quay.io/eformat/policy-generator-plugin-image:v1.13.0](https://quay.io/repository/eformat/policy-generator-plugin-image)
 
 ```yaml
     initContainers:
