@@ -26,5 +26,3 @@ policies:
   - name: team-gitops
     manifests:
       - path: helm-input/
-        kustomizeOptions:
-          enableAlphaPlugins: true
