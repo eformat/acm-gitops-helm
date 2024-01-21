@@ -20,5 +20,5 @@ helmCharts:
             key: username
             name: git-auth
   releaseName: argocd
-  version: 0.5.7
+  version: 0.9.3
   repo: https://redhat-cop.github.io/helm-charts
