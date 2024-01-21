@@ -4,7 +4,7 @@ ACM, PolicyGenerator Kustomize Pugin, Helm
 
 # 🤠 For the impatient
 
-- Install RHACM Operator 2.6/2.7+ into your OpenShift4 cluster
+- Install RHACM Operator into your OpenShift4 cluster
 - Label you local cluster with `useglobal=true` and `teamargo=true`
 - Boostrap global ArgoCD for policy
 
