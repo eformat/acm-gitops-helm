@@ -28,4 +28,3 @@ policies:
       - path: helm-input/
         kustomizeOptions:
           enableAlphaPlugins: true
-          enableHelm: true
